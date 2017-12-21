@@ -1,0 +1,19 @@
+{
+  "name": "node_postgressql_api",
+  "version": "1.0.0",
+  "description": "Node api and postgressql db",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubenbase/node_postgressql_API.git"
+  },
+  "author": "Ruben Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rubenbase/node_postgressql_API/issues"
+  },
+  "homepage": "https://github.com/rubenbase/node_postgressql_API#readme"
+}
