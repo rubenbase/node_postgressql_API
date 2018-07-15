@@ -37,7 +37,7 @@ var db;
 //					Initialize
 // ******************************************
 var app = express();
-var startExpress = function() {
+var startExpress = function () {
   app.listen(config.express.port);
   db = app.get("db");
   console.log("_____________________");
@@ -45,7 +45,7 @@ var startExpress = function() {
   console.log("Listening on port " + config.express.port);
   console.log("_____________________");
 };
-var initialize = function() {
+var initialize = function () {
   startExpress();
 };
 // ******************************************
@@ -54,8 +54,8 @@ var initialize = function() {
 // ------------------------------------------
 //			Send back a 500 error
 // ------------------------------------------
-var handleError = function(res) {
-  return function(err) {
+var handleError = function (res) {
+  return function (err) {
     console.log(err);
     res.send(500, { error: err.message });
   };
@@ -63,7 +63,7 @@ var handleError = function(res) {
 // ------------------------------------------
 //			Initialize demo table
 // ------------------------------------------
-var loadDemoData = function() {
+var loadDemoData = function () {
   console.log("_____________________");
   console.log("Initialize demo table");
   var newDoc = {
@@ -82,7 +82,7 @@ var loadDemoData = function() {
       }
     ]
   };
-  db.saveDoc("steps", newDoc, function(err, response) {
+  db.saveDoc("steps", newDoc, function (err, response) {
     // "steps" table is created on the fly
     if (err) {
       handleError(res);
@@ -93,14 +93,14 @@ var loadDemoData = function() {
 // ------------------------------------------
 //				Retrieve all elements
 // ------------------------------------------
-var list = function(request, res, next) {
+var list = function (request, res, next) {
   console.log("_____________________");
   console.log("API - list/list");
   if (!db.steps) {
     loadDemoData();
     return;
   }
-  db.steps.findDoc(1, function(err, doc) {
+  db.steps.findDoc(1, function (err, doc) {
     if (err) {
       handleError(res);
     }
@@ -111,12 +111,12 @@ var list = function(request, res, next) {
 // ------------------------------------------
 //	Insert an element on an existing object
 // ------------------------------------------
-var update = function(request, res, next) {
+var update = function (request, res, next) {
   console.log("_____________________");
   console.log("API - list/update");
   var newDoc = request.body.data;
   //	console.log(newDoc)
-  db.steps.saveDoc({ id: 1, data: newDoc }, function(err, response) {
+  db.steps.saveDoc({ id: 1, data: newDoc }, function (err, response) {
     if (err) {
       handleError(res);
     }
