@@ -1,2 +1,2 @@
 # Nodejs and Postgres API
-A Nodejs API with Postgres example
+An example of a Nodejs API with Postgres connection.
